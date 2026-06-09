@@ -25,6 +25,11 @@ export interface AppConfig {
     cardFlipAnimation: 'flip' | 'fade' | 'slide'
     cardsPerPage: number
     showAnswerOnClick: boolean
+    mask: {
+      enabled: boolean
+      character: string
+      interval: number | 'random'
+    }
   }
   storage: {
     filePath: string

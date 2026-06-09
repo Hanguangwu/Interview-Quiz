@@ -18,9 +18,14 @@ const DEFAULT_CONFIG: AppConfig = {
     cardFlipAnimation: 'flip',
     cardsPerPage: 10,
     showAnswerOnClick: true,
+    mask: {
+      enabled: false,
+      character: 'X',
+      interval: 3,
+    },
   },
   storage: {
-    filePath: '/src/data/questions.json',
+    filePath: `${import.meta.env.BASE_URL}data/questions.json`,
     autoSave: true,
     backupEnabled: false,
   },
@@ -38,7 +43,7 @@ export function loadConfig(): AppConfig {
         ...parsed,
         app: { ...DEFAULT_CONFIG.app, ...parsed.app },
         chatbot: { ...DEFAULT_CONFIG.chatbot, ...parsed.chatbot },
-        ui: { ...DEFAULT_CONFIG.ui, ...parsed.ui },
+        ui: { ...DEFAULT_CONFIG.ui, ...parsed.ui, mask: { ...DEFAULT_CONFIG.ui.mask, ...parsed.ui?.mask } },
         storage: { ...DEFAULT_CONFIG.storage, ...parsed.storage },
       }
     }

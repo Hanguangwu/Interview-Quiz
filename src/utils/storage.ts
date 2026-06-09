@@ -1,11 +1,10 @@
 import type { Question } from '../types'
 
-const DEFAULT_FILE_PATH = '/src/data/questions.json'
+const DEFAULT_FILE_PATH = `${import.meta.env.BASE_URL}data/questions.json`
 
 /**
  * 从 JSON 文件读取所有问题
- * 在 Vite 中通过 import.meta.url 或直接 fetch 读取 public 目录下的文件
- * 开发模式下使用 fetch 读取 src/data/questions.json
+ * 通过 Vite 的 BASE_URL 拼接路径，读取 public/data/questions.json
  */
 export async function readQuestions(filePath?: string): Promise<Question[]> {
   const path = filePath || DEFAULT_FILE_PATH

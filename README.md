@@ -22,6 +22,10 @@
 ## 项目结构
 
 ```
+public/
+├── data/                # 本地 JSON 数据存储
+│   └── questions.json   # 问题数据（初始种子数据）
+└── ...
 src/
 ├── components/
 │   ├── layout/          # 布局组件（AppHeader, AppSidebar）
@@ -29,7 +33,6 @@ src/
 │   └── chatbot/         # Chatbot 组件
 ├── composables/         # 组合式 API（useQuestions, useChatbot, useConfig）
 ├── config/              # 统一系统配置
-├── data/                # 本地 JSON 数据存储
 ├── router/              # Vue Router 路由配置
 ├── types/               # TypeScript 类型定义
 ├── utils/               # 工具函数（storage, id）
@@ -40,6 +43,9 @@ src/
 ```
 
 ## 路由
+
+> 项目部署在 GitHub Pages 子路径 `/Interview-Quiz/` 下，所有路由相对于该基础路径。
+> 开发环境 (`pnpm dev`) 自动处理基础路径，无需额外配置。
 
 | 路径 | 说明 |
 |------|------|
